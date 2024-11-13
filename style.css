@@ -1,0 +1,59 @@
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Background color for the body */
+}
+
+/* Header Section (for positioning nav at the top) */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Navigation (Nav) Styling */
+nav {
+    max-width: 1000px;  /* Max width to prevent stretching on large screens */
+    margin: 0 auto;     /* Auto margin on both sides to center horizontally */
+    text-align: center; /* Center the content inside the nav */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Horizontally center list items */
+    align-items: center;     /* Vertically align list items */
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px; /* Space between navigation items */
+}
+
+nav ul li a {
+    color: rgb(218, 50, 50);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007BFF;  /* Change color on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+    nav ul li {
+        margin: 10px 0; /* More space between items when stacked */
+    }
+}

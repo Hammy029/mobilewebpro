@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login / Register | Bara Cee Food Delivery">
+    <meta name="author" content="Bara Cee">
+    <title>Login / Register | Bara Cee Food Delivery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external stylesheet -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+    <link rel="stylesheet" href="login.css"> <!-- Link to the external stylesheet -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login / Register Container -->
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <form id="loginForm" action="/login" method="POST" onsubmit="return validateLoginForm()">
+                <div class="input-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p>Don't have an account? <a href="register.html" class="switch-link">Register here</a></p>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="register-form">
+            <h2>Register</h2>
+            <form id="registerForm" action="/register" method="POST" onsubmit="return validateRegisterForm()">
+                <div class="input-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="input-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p>Already have an account? <a href="login.html" class="switch-link">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Bara Cee Food Delivery | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript to toggle between forms -->
+    <script>
+        // Toggle between login and register forms
+        document.querySelectorAll('.switch-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const loginForm = document.getElementById('login-form');
+                const registerForm = document.getElementById('register-form');
+                loginForm.classList.toggle('hidden');
+                registerForm.classList.toggle('hidden');
+            });
+        });
+
+        // Login Form Validation
+        function validateLoginForm() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Basic email format validation
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Basic password validation
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Register Form Validation
+        function validateRegisterForm() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+
+            // Validate name (check for empty)
+            if (name.trim() === "") {
+                alert("Please enter your full name.");
+                return false;
+            }
+
+            // Validate email format
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please check and try again.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

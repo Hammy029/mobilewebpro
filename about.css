@@ -1,0 +1,118 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header (Navigation Bar) */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007BFF;
+}
+
+/* About Page Section */
+.about {
+    background-color: #fff;
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.about p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #555;
+}
+
+/* About Image Section */
+.about-image {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+}
